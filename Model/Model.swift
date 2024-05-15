@@ -10,10 +10,10 @@ import Foundation
 // MARK: - Airport
 struct Airport: Codable {
     let longitudeDeg: String
-    let otherName: JSONNull?
+    let otherName: String?
     let iataCode, elevationFt: String
     let isAvailable: Bool
-    let localCode: JSONNull?
+    let localCode: String?
     let id: Int
     let continent: String
     let countryID: Int
@@ -23,7 +23,7 @@ struct Airport: Codable {
     let wikipediaLink: String
     let isoRegion, name, keywords, municipality: String
     let latitudeDege: String
-    let code: JSONNull?
+    let code: String?
     let scheduledService, gpsCode: String
 
     enum CodingKeys: String, CodingKey {
