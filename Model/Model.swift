@@ -9,23 +9,40 @@ import Foundation
 
 // MARK: - Airport
 struct Airport: Codable {
+    // Longitud geográfica del aeropuerto en grados.
     let longitudeDeg: String
+    // Otro nombre del aeropuerto (opcional).
     let otherName: String?
+    // Código IATA del aeropuerto.
     let iataCode, elevationFt: String
+    // Disponibilidad del aeropuerto.
     let isAvailable: Bool
+    // Código local del aeropuerto (opcional).
     let localCode: String?
+    // ID del aeropuerto.
     let id: Int
+    // Continente en el que se encuentra el aeropuerto.
     let continent: String
+    // ID del país al que pertenece el aeropuerto.
     let countryID: Int
+    // Identificador del aeropuerto.
     let ident: String
+    // Enlace a la página de inicio del aeropuerto.
     let homeLink: String
+    // Código ISO del país al que pertenece el aeropuerto.
     let isoCountry, typeA: String
+    // Enlace a la página de Wikipedia del aeropuerto.
     let wikipediaLink: String
+    // Región ISO en la que se encuentra el aeropuerto.
     let isoRegion, name, keywords, municipality: String
+    // Latitud geográfica del aeropuerto en grados.
     let latitudeDege: String
+    // Código del aeropuerto (opcional).
     let code: String?
+    // Servicio programado en el aeropuerto.
     let scheduledService, gpsCode: String
 
+    // Enumeración para mapear las claves de codificación.
     enum CodingKeys: String, CodingKey {
         case longitudeDeg = "longitude_deg"
         case otherName = "other_name"
@@ -49,31 +66,6 @@ struct Airport: Codable {
     }
 }
 
+// Alias para una lista de aeropuertos.
 typealias Airports = [Airport]
 
-//// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}
