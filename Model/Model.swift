@@ -1,48 +1,29 @@
-//
-//  Model.swift
-//  DiscoverAirports
-//
-//  Created by Ricardo Developer on 13/05/24.
-//
-
 import Foundation
 
 // MARK: - Airport
-struct Airport: Codable {
-    // Longitud geográfica del aeropuerto en grados.
+struct Airport: Codable, Hashable {
     let longitudeDeg: String
-    // Otro nombre del aeropuerto (opcional).
     let otherName: String?
-    // Código IATA del aeropuerto.
-    let iataCode, elevationFt: String
-    // Disponibilidad del aeropuerto.
+    let iataCode, elevationFt: String?
     let isAvailable: Bool
-    // Código local del aeropuerto (opcional).
     let localCode: String?
-    // ID del aeropuerto.
     let id: Int
-    // Continente en el que se encuentra el aeropuerto.
-    let continent: String
-    // ID del país al que pertenece el aeropuerto.
+    let continent: Continent
     let countryID: Int
-    // Identificador del aeropuerto.
     let ident: String
-    // Enlace a la página de inicio del aeropuerto.
-    let homeLink: String
-    // Código ISO del país al que pertenece el aeropuerto.
-    let isoCountry, typeA: String
-    // Enlace a la página de Wikipedia del aeropuerto.
-    let wikipediaLink: String
-    // Región ISO en la que se encuentra el aeropuerto.
-    let isoRegion, name, keywords, municipality: String
-    // Latitud geográfica del aeropuerto en grados.
+    let homeLink: String?
+    let isoCountry: ISOCountry
+    let typeA: TypeA
+    let wikipediaLink: String?
+    let isoRegion: ISORegion
+    let name: String
+    let keywords: String?
+    let municipality: String?
     let latitudeDege: String
-    // Código del aeropuerto (opcional).
     let code: String?
-    // Servicio programado en el aeropuerto.
-    let scheduledService, gpsCode: String
-
-    // Enumeración para mapear las claves de codificación.
+    let scheduledService: ScheduledService
+    let gpsCode: String?
+    
     enum CodingKeys: String, CodingKey {
         case longitudeDeg = "longitude_deg"
         case otherName = "other_name"
@@ -66,6 +47,42 @@ struct Airport: Codable {
     }
 }
 
-// Alias para una lista de aeropuertos.
+enum Continent: String, Codable {
+    case eu = "EU"
+}
+
+enum ISOCountry: String, Codable {
+    case be = "BE"
+}
+
+enum ISORegion: String, Codable {
+    case beBru = "BE-BRU"
+    case beVan = "BE-VAN"
+    case beVbr = "BE-VBR"
+    case beVli = "BE-VLI"
+    case beVov = "BE-VOV"
+    case beVwv = "BE-VWV"
+    case beWbr = "BE-WBR"
+    case beWht = "BE-WHT"
+    case beWlg = "BE-WLG"
+    case beWlx = "BE-WLX"
+    case beWna = "BE-WNA"
+}
+
+enum ScheduledService: String, Codable {
+    case no = "no"
+    case yes = "yes"
+}
+
+enum TypeA: String, Codable {
+    case balloonport = "balloonport"
+    case closed = "closed"
+    case heliport = "heliport"
+    case largeAirport = "large_airport"
+    case mediumAirport = "medium_airport"
+    case seaplaneBase = "seaplane_base"
+    case smallAirport = "small_airport"
+}
+
 typealias Airports = [Airport]
 

@@ -13,9 +13,10 @@
 		D04E80D52BF2ED3B008CD0B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D04E80D42BF2ED3B008CD0B2 /* Preview Assets.xcassets */; };
 		D04E80DF2BF2ED7B008CD0B2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04E80DE2BF2ED7B008CD0B2 /* ApiClient.swift */; };
 		D04E80E12BF2ED8A008CD0B2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04E80E02BF2ED8A008CD0B2 /* Model.swift */; };
-		D04E80E32BF2EE66008CD0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04E80E22BF2EE66008CD0B2 /* HomeViewModel.swift */; };
+		D04E80E32BF2EE66008CD0B2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04E80E22BF2EE66008CD0B2 /* ViewModel.swift */; };
 		D04E80E52BF2EE72008CD0B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04E80E42BF2EE72008CD0B2 /* HomeView.swift */; };
-		D0D531D52BF45AC40098BF83 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D531D42BF45AC40098BF83 /* MapView.swift */; };
+		D0BCA90A2BF5684400EC8E23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BCA9092BF5684400EC8E23 /* ViewController.swift */; };
+		D0D531D52BF45AC40098BF83 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D531D42BF45AC40098BF83 /* TabBarView.swift */; };
 		D0D531D92BF461860098BF83 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D531D82BF461860098BF83 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +28,10 @@
 		D04E80D42BF2ED3B008CD0B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D04E80DE2BF2ED7B008CD0B2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		D04E80E02BF2ED8A008CD0B2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		D04E80E22BF2EE66008CD0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D04E80E22BF2EE66008CD0B2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D04E80E42BF2EE72008CD0B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D0D531D42BF45AC40098BF83 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D0BCA9092BF5684400EC8E23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0D531D42BF45AC40098BF83 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D0D531D82BF461860098BF83 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,10 +103,11 @@
 		D04E80DD2BF2ED64008CD0B2 /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
-				D04E80E22BF2EE66008CD0B2 /* HomeViewModel.swift */,
+				D04E80E22BF2EE66008CD0B2 /* ViewModel.swift */,
 				D04E80E42BF2EE72008CD0B2 /* HomeView.swift */,
-				D0D531D42BF45AC40098BF83 /* MapView.swift */,
+				D0D531D42BF45AC40098BF83 /* TabBarView.swift */,
 				D0D531D82BF461860098BF83 /* ListView.swift */,
+				D0BCA9092BF5684400EC8E23 /* ViewController.swift */,
 			);
 			path = Moduls;
 			sourceTree = "<group>";
@@ -179,12 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D531D52BF45AC40098BF83 /* MapView.swift in Sources */,
+				D0D531D52BF45AC40098BF83 /* TabBarView.swift in Sources */,
 				D04E80D02BF2ED3A008CD0B2 /* ContentView.swift in Sources */,
 				D04E80CE2BF2ED3A008CD0B2 /* DiscoverAirportsApp.swift in Sources */,
+				D0BCA90A2BF5684400EC8E23 /* ViewController.swift in Sources */,
 				D04E80DF2BF2ED7B008CD0B2 /* ApiClient.swift in Sources */,
 				D04E80E52BF2EE72008CD0B2 /* HomeView.swift in Sources */,
-				D04E80E32BF2EE66008CD0B2 /* HomeViewModel.swift in Sources */,
+				D04E80E32BF2EE66008CD0B2 /* ViewModel.swift in Sources */,
 				D04E80E12BF2ED8A008CD0B2 /* Model.swift in Sources */,
 				D0D531D92BF461860098BF83 /* ListView.swift in Sources */,
 			);

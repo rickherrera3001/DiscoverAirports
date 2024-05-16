@@ -6,42 +6,37 @@
 //
 
 import SwiftUI
+import Foundation
+import MapKit
+import UIKit
 
 struct AirportListView: View {
     // Variable de estado para almacenar los datos de los aeropuertos
-    @State private var airports: Airports = []
+    @ObservedObject var airports = AirportViewModel()
+    @State var searchText = ""
     
-    // Instancia del cliente API para obtener los datos
-    let apiClient = APIClient()
     
     var body: some View {
         // Lista para mostrar los aeropuertos
-        List(airports, id: \.id) { airport in
+        List(airports.airports, id: \.id) { airport in
             VStack(alignment: .leading) {
                 Text("Name: \(airport.name)")
-                Text("IATA Code: \(airport.iataCode)")
+                Text("IATA Code: \(String(describing: airport.iataCode))")
                 Text("Country: \(airport.isoCountry)")
                 Text("Continent: \(airport.continent)")
             }
         }
         // Llama al método fetchData() del cliente API cuando la vista se carga
         .onAppear {
-            apiClient.fetchData { result in
-                switch result {
-                case .success(let fetchedAirports):
-                    airports = fetchedAirports
-                case .failure(let error):
-                    //Maneji de error aqui
-                    print("Error fetching airports")
+            airports.fetchAirports(country: searchText)
+                
                 }
             }
         }
-    }
+
+
+#Preview {
+    AirportListView()
 }
 
-struct AirportListView_Previews: PreviewProvider {
-    static var previews: some View {
-        AirportListView()
-    }
-}
 
