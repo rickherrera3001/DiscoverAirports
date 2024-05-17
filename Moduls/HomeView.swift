@@ -10,21 +10,20 @@ import SwiftUI
 import MapKit
 import UIKit
 
-// Esta estructura representa la vista de búsqueda.
+
 struct SearchView: View {
-    // Estado para almacenar el texto de búsqueda.
+
     @State var searchText = ""
     
     var body: some View {
         NavigationView{
             VStack {
-                // Título de la vista de búsqueda.
+               
                 Text(" SEARCH AIRPORT")
                     .font(.system(size: 50))
                     .foregroundColor(.green)
                     .bold()
                 
-                // Campo de texto para ingresar el término de búsqueda.
                 TextField("ingrese el pais", text: $searchText)
                     .padding()
                     .background(Color(.systemGray5))
@@ -34,18 +33,18 @@ struct SearchView: View {
                 
                 NavigationLink(destination: TabBarView(query: searchText)) {
                     Text("Search")
-                    
-                    
+                        .foregroundColor(.white)
+                                                .padding()
+                                                .background(Color.green)
+                                                .cornerRadius(10)
                 }
                 .padding()
             }
             .padding()
         }
     }
-    
 }
 
-// Esta estructura proporciona una vista previa de la vista de búsqueda.
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()

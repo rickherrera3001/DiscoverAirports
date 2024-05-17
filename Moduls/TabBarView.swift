@@ -36,22 +36,28 @@ struct TabBarView: View {
 struct MapContentView: View {
     @ObservedObject var AirportVM = AirportViewModel()
     @State var searchText = ""
+    @State private var airportMarkers: [AirportMarker] = []
     
     var body: some View {
         
-        // Se muestra la vista del mapa.
-        MapViewControllerBridge()
+        MapViewControllerBridge(accesvm: AirportVM)
         
             .onAppear{
                 AirportVM.fetchAirports(country: searchText)
         }
     }
 }
+
+struct AirportMarker: Identifiable {
+    let id = UUID()
+    let airport: Airport
+    let coordinate: CLLocationCoordinate2D
+    let title: String
+    let subtitle: String
+}
+
 struct tabBarList: View {
     var body: some View {
         tabBarList()
     }
 }
-
-
-
